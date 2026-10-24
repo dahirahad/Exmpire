@@ -1,0 +1,33 @@
+# NEFFTO IT Solution - Apache .htaccess Configuration
+# Protect against directory listing
+Options -Indexes
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Pass PHP requests directly to PHP handler
+RewriteCond %{REQUEST_URI} ^/php/ [NC]
+RewriteRule ^ - [L]
+
+# Prevent access to config.php directly
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Route all other requests to index.html for React SPA client-side routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    color: #102033;
+    background-color: #FFFFFF;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #061A33;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm
+           bg-empire-gold text-empire-navy transition-all duration-200
+           hover:bg-empire-goldHover hover:shadow-gold-glow active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-empire-gold/50;
+  }
+
+  .btn-navy {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm
+           bg-empire-navy text-white transition-all duration-200
+           hover:bg-empire-deepBlue active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-empire-navy/50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm
+           bg-white text-empire-navy border border-empire-border transition-all duration-200
+           hover:bg-empire-lightGrey hover:border-empire-gold/50 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-empire-gold/30;
+  }
+
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm
+           bg-transparent text-empire-gold border border-empire-gold transition-all duration-200
+           hover:bg-empire-gold hover:text-empire-navy active:scale-[0.98];
+  }
+
+  /* Cards */
+  .card-light {
+    @apply bg-white rounded-2xl border border-empire-border p-6 shadow-card-light transition-all duration-200 hover:border-empire-gold/40 hover:shadow-md;
+  }
+
+  .card-dark {
+    @apply bg-empire-cardDark rounded-2xl border border-empire-borderDark p-6 text-white shadow-card-dark;
+  }
+
+  /* Badges */
+  .badge-gold {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold
+           bg-empire-goldLight text-[#A56800] border border-empire-gold/20;
+  }
+
+  .badge-navy {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold
+           bg-empire-navy text-white border border-empire-navy;
+  }
+
+  .badge-demo {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-bold tracking-wider uppercase
+           bg-amber-500/15 text-amber-600 border border-amber-500/30;
+  }
+
+  /* Forms */
+  .form-label {
+    @apply block text-xs font-semibold uppercase tracking-wider text-empire-textDark mb-1.5;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg bg-white border border-empire-border text-empire-textDark text-sm
+           placeholder:text-empire-textMuted/60 transition-all duration-150
+           focus:outline-none focus:border-empire-gold focus:ring-2 focus:ring-empire-gold/20;
+  }
+
+  /* Section Spacing */
+  .section {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+}
